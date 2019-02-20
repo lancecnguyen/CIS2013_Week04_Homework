@@ -18,8 +18,20 @@ int main(){
 	cout << "Please enter your age: ";
 	cin >> age;
 	
+	cout.setf(ios::fixed);
+	cout.setf(ios::showpoint);
+	cout.precision(2);
+	cout << endl;
 	
+	cout << "The user's hat size is: " << hat << endl;
+	cout << "The user's jacket size is : " << jacket << endl;
+	cout << "The user's waist is: " << waist << endl;
 	
-	
+	return 0;
+}
+double hat (double h, double w){
+	return ((w/h)*2.9);
+}
+double jacket (double h, double w, int age){
 	return 0;
 }

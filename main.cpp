@@ -2,7 +2,7 @@
 
 double hat(double, double);
 double jacket(double, double, int);
-double waist (double, double, int);
+double waist (double, int);
 
 
 int main(){
@@ -11,6 +11,12 @@ int main(){
 	int age;
 	char again = 'Y';
 	
+	cout.setf(ios::fixed);
+	cout.setf(ios::showpoint);
+	cout.precision(2);
+	
+	do {
+		
 	cout << "Please enter your height in inches: ";
 	cin >> h;
 	cout << "Please enter your weight in pounds: ";
@@ -18,20 +24,26 @@ int main(){
 	cout << "Please enter your age: ";
 	cin >> age;
 	
-	cout.setf(ios::fixed);
-	cout.setf(ios::showpoint);
-	cout.precision(2);
 	cout << endl;
 	
-	cout << "The user's hat size is: " << hat << endl;
-	cout << "The user's jacket size is : " << jacket << endl;
-	cout << "The user's waist is: " << waist << endl;
+	cout << "The user's hat size is: " << hat (h, w) << endl;
+	cout << "The user's jacket size is : " << jacket (h, w, age) << endl;
+	cout << "The user's waist is: " << waist (w, age) << endl;
+	cout << "Do you want to try again? Y/n" << endl;
+	} while (again == 'y' || again == 'Y');
 	
 	return 0;
 }
 double hat (double h, double w){
-	return ((w/h)*2.9);
+	return w/h*2.9;
 }
 double jacket (double h, double w, int age){
-	return 0;
+	double older;
+	older = ((age - 30) / 10) * 1/8;
+	return h * w / 288 + older;
+}
+double waist (double w, double age){
+	double older;
+	older = ((age - 28) / 2) * 1 / 10;
+	return w / 5.7 + older;
 }
